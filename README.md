@@ -4,6 +4,36 @@
 ## Introduction
 Php package a helper to integration with payuse api
 
+## Contents
+- [Authentication](#authentication)
+    - Sign-In
+- [Categories](#categories)
+    - Main Categories
+    - Sub Categories
+- [Wallet](#wallet)
+    - Get User Balance
+- [Products](#products)
+    - Get Products
+- [Verification](#verification)
+    - Check stock verification
+- [Purchase](#purchase)
+    - Create Voucher Order
+- [Top Up](#top-up)
+    - Free Fire
+        - Account Validation
+        - Top Up
+    - Mobile Legends
+        - Account Validation
+        - Top Up
+    - Razer Gold
+        - Account Validation
+        - Top Up
+- [Orders](#orders)
+    - Get all orders
+    - Get details order
+
+    
+
 ## Installation
 
 To get the latest version of payuse-php on your project, require it from "composer":
