@@ -6,31 +6,31 @@ Php package a helper to integration with payuse api
 
 ## Contents
 - [Authentication](#authentication)
-    - Sign-In
+    - [Sign-In](#sign-in)
 - [Categories](#categories)
-    - Main Categories
-    - Sub Categories
+    - [Main Categories](#main-categories)
+    - [Sub Categories](#sub-categories)
 - [Wallet](#wallet)
-    - Get User Balance
+    - [Get User Balance](#balance)
 - [Products](#products)
-    - Get Products
+    - [Get Products](#get-products)
 - [Verification](#verification)
-    - Check stock verification
+    - [Check stock verification](#stock-verification)
 - [Purchase](#purchase)
-    - Create Voucher Order
+    - [Create Voucher Order](#create-voucher=Order)
 - [Top Up](#top-up)
-    - Free Fire
-        - Account Validation
-        - Top Up
-    - Mobile Legends
-        - Account Validation
-        - Top Up
-    - Razer Gold
-        - Account Validation
-        - Top Up
+    - [Free Fire](top-up-free-fire)
+        - [Account Validation](#free-fire-validation)
+        - [Top Up](free-fire-top-up)
+    - [Mobile Legends](#mobile-legends)
+        - [Account Validation](#mobile-legends-validation)
+        - [Top Up](#mobile-legends-top-up)
+    - [Razer Gold](#top-up-razer-gold)
+        - [Account Validation](#razer-gold-validation)
+        - [Top Up](#razer-gold-top-up)
 - [Orders](#orders)
-    - Get all orders
-    - Get details order
+    - [Get all orders](#get-all-orders)
+    - [Get details order](#get-details-order)
 
     
 
@@ -126,7 +126,7 @@ $payUse = new PayUse(
         ]
     */
     ```
-- Sub Categories
+- <span id="sub-categories">Sub Categories</span>
 
     ```php
     /**
@@ -177,7 +177,7 @@ $payUse = new PayUse(
 
 ### Products
 
-- Get Products
+- Get Products{#get-products}
 
     ```php
     /**
