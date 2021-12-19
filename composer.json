@@ -20,7 +20,7 @@
     "homepage": "https://github.com/prgayman/payuse-php",
     "autoload": {
         "psr-4": {
-            "Prgayman\\Payuse\\": "src/"
+            "Prgayman\\PayUse\\": "src/"
         }
     },
     "minimum-stability": "stable",

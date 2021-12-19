@@ -73,11 +73,11 @@ class PayUse
      * 
      * @return array
      */
-    public function signIn(string $email, string $secret): array
+    public function signIn(): array
     {
         $signIn = $this->http->post("/v1/signin", [
-            "email" => $email,
-            "secret" => $secret
+            "email" => $this->email,
+            "secret" => $this->secretKey
         ])['body'];
 
         // Set Access token
