@@ -17,12 +17,12 @@ Php package a helper to integration with payuse api
 - [Verification](#verification)
     - [Check stock verification](#stock-verification)
 - [Purchase](#purchase)
-    - [Create Voucher Order](#create-voucher=Order)
+    - [Create Voucher Order](#create-voucher-order)
 - [Top Up](#top-up)
     - [Free Fire](top-up-free-fire)
         - [Account Validation](#free-fire-validation)
-        - [Top Up](free-fire-top-up)
-    - [Mobile Legends](#mobile-legends)
+        - [Top Up](#free-fire-top-up)
+    - [Mobile Legends](#top-up-mobile-legends)
         - [Account Validation](#mobile-legends-validation)
         - [Top Up](#mobile-legends-top-up)
     - [Razer Gold](#top-up-razer-gold)
@@ -81,7 +81,7 @@ $payUse = new PayUse(
 ```
 
 ### Authentication
-- Sign-In
+- <span id="sign-in">Sign-In</span>
 
     ```php
     /**
@@ -102,7 +102,7 @@ $payUse = new PayUse(
 
 ### Categories
 
-- Main Categories
+- <span id="main-categories">Main Categories</span> 
 
     ```php
     /**
@@ -155,7 +155,7 @@ $payUse = new PayUse(
 
 ### Wallet
 
-- Balance
+- <span id="balance">Balance</span> 
 
     ```php
     /**
@@ -177,7 +177,7 @@ $payUse = new PayUse(
 
 ### Products
 
-- Get Products{#get-products}
+- <span id="get-products">Get Products</span>
 
     ```php
     /**
@@ -221,7 +221,7 @@ $payUse = new PayUse(
 
 ### Verification
 
-- Stock 
+- <span id="stock-verification">Stock Verification</span>  
 
     ```php
     /**
@@ -237,7 +237,7 @@ $payUse = new PayUse(
 
 ### Purchase
 
-- Create Voucher Order
+- <span id="create-voucher-order">Create Voucher Order</span> 
 
     ```php
     /**
@@ -276,9 +276,9 @@ $payUse = new PayUse(
     ```
 
 ### Top Up
-- Free Fire
+- <span id="top-up-free-fire">Free Fire</span> 
 
-    - Account Validation
+    - <span id="free-fire-validation"></span> Account Validation
 
         ```php
         /**
@@ -310,7 +310,7 @@ $payUse = new PayUse(
         */
         ```
 
-    - Top Up
+    - <span id="free-fire-top-up">Top Up</span> 
 
         ```php
         /**
@@ -348,9 +348,9 @@ $payUse = new PayUse(
             ]
         */
         ```
-- Mobile Legends
+- <span id="top-up-mobile-legends">Mobile Legends</span> 
 
-    - Account Validation
+    - <span id="mobile-legends-validation"></span> Account Validation
 
         ```php
         /**
@@ -381,7 +381,7 @@ $payUse = new PayUse(
         */
         ```
 
-    - Top Up
+    - <span id="mobile-legends-top-up">Top Up</span>
 
         ```php
             /**
@@ -422,8 +422,8 @@ $payUse = new PayUse(
                 ]
             */
         ```
-- Razer Gold
-    - Account Validation
+- <span id="top-up-razer-gold">Razer Gold</span> 
+    - <span id="razer-gold-validation">Account Validation</span> 
 
         ```php
             /**
@@ -451,7 +451,7 @@ $payUse = new PayUse(
             */
         ```
 
-    - Top Up
+    - <span id="razer-gold-top-up">Top Up</span> 
 
     ```php
         /**
@@ -493,7 +493,7 @@ $payUse = new PayUse(
         */
     ```
 ### Orders
-- Get Orders
+- <span id="get-order">Get Orders</span> 
 
     ```php
     /**
@@ -565,7 +565,7 @@ $payUse = new PayUse(
 
     ```
 
-- Get Details Order
+- <span id="get-details-order">Get Details Order</span> 
     ```php
     /**
      * Get Order details
