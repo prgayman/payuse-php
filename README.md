@@ -177,7 +177,7 @@ $payUse = new PayUse(
 
 ### Products
 
-- <span id="get-products">Get Products</span>
+- <span id="get-products">Get Products</spawn>
 
     ```php
     /**
@@ -453,45 +453,45 @@ $payUse = new PayUse(
 
     - <span id="razer-gold-top-up">Top Up</span> 
 
-    ```php
-        /**
-        * Razer Gold Create Top Up 
-        * 
-        * @param string $identifier
-        * @param int $accountId
-        * @param string $validatedToken
-        * @param string $referenceId
-        * @param mixed $customOrderReference
-        * 
-        * @return array
-        */
-        $topUp = $payUse->razerGoldTopUp(
-            "Razer-Gold-top-up",
-            "razergoldsandbox+gl015@gmail.com",
-            "fc26c910d68543b3bc65e69c0a858f14",
-            "RG-d2be-42dd-8fa9-17e92fa72375-61499e99e14c9",
-            "ORDER-REF038572"
-        );
+        ```php
+            /**
+            * Razer Gold Create Top Up 
+            * 
+            * @param string $identifier
+            * @param int $accountId
+            * @param string $validatedToken
+            * @param string $referenceId
+            * @param mixed $customOrderReference
+            * 
+            * @return array
+            */
+            $topUp = $payUse->razerGoldTopUp(
+                "Razer-Gold-top-up",
+                "razergoldsandbox+gl015@gmail.com",
+                "fc26c910d68543b3bc65e69c0a858f14",
+                "RG-d2be-42dd-8fa9-17e92fa72375-61499e99e14c9",
+                "ORDER-REF038572"
+            );
 
-        /*
-            Response Example
-            [
-                "orderReference" => "PU-ORDER00000000000050",
-                "customOrderReference" => "ORDR-REF038572",
-                "lineTotal" => [
-                    "amount" => 2,
-                    "formatted" => "$2.00",
-                    "currency" => "USD",
-                ],
-                "unitPrice" => [
-                    "amount" => 2,
-                    "formatted" => "$2.00",
-                    "currency" => "USD",
-                ],
-                "account_id" => "razergoldsandbox+gl005@gmail.com"
-            ]
-        */
-    ```
+            /*
+                Response Example
+                [
+                    "orderReference" => "PU-ORDER00000000000050",
+                    "customOrderReference" => "ORDR-REF038572",
+                    "lineTotal" => [
+                        "amount" => 2,
+                        "formatted" => "$2.00",
+                        "currency" => "USD",
+                    ],
+                    "unitPrice" => [
+                        "amount" => 2,
+                        "formatted" => "$2.00",
+                        "currency" => "USD",
+                    ],
+                    "account_id" => "razergoldsandbox+gl005@gmail.com"
+                ]
+            */
+        ```
 ### Orders
 - <span id="get-order">Get Orders</span> 
 
