@@ -493,11 +493,11 @@ $payUse = new PayUse(
             */
         ```
 ### Orders
-- <span id="get-order">Get Orders</span> 
+- <span id="get-all-orders">Get all Orders</span> 
 
     ```php
     /**
-     * Get Orders
+     * Get all Orders
      * 
      * @param int $page
      * @param int $startDate
