@@ -50,27 +50,77 @@ $payUse = new PayUse(
 );
 ```
 
-## Authentication
-### Sign-In
+### Authentication
+- Sign-In
+    ```php
+    /**
+     * Sign In get access token and automatically to set access token to header request
+     * 
+     * @return array
+     */
+    $signIn = $payUse->signIn();
 
-Use function to get access token
+    /*
+        Response Example
+        [
+            "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9eyJhdWQiOiIxIiwianRpIjoiNGM1ODQyMTMyNc",
+            "expires_at": "2021-12-19T11:47:34.000000Z"
+        ]
+    */
+    ```
 
-```php
-/**
- * Sign In get access token
- * 
- * @return array
- */
-$signIn = $payUse->signIn();
-/*
-Response Example
-[
-    "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9eyJhdWQiOiIxIiwianRpIjoiNGM1ODQyMTMyNc",
-    "expires_at": "2021-12-19T11:47:34.000000Z"
-]
-*/
-```
+### Categories
 
+- Main Categories
+
+    ```php
+    /**
+     * Get main categories
+     * 
+     * @return array
+     */
+    $categories = $payUse->getMainCategories():
+    
+    /*
+        Response Example
+        [
+            [
+                "identifier": "payments-cards",
+                "name": "Payments Cards",
+                "description": null,
+                "logo": null,
+                "banner": null,
+                "has_sub": false
+            ]
+        ]
+    */
+    ```
+- Sub Categories
+
+    ```php
+    /**
+     * Get sub categories by identifier main category
+     * 
+     * @param string $identifier
+     * 
+     * @return array
+     */
+    $categories = $payUse->getSubCategories("top-up"):
+    
+    /*
+        Response Example
+        [
+            [
+                "identifier": "free-fire",
+                "name": "Free Fire",
+                "description": "<p>Free Fire</p>",
+                "logo": null,
+                "banner": null,
+                "has_sub": false
+            ]
+        ]
+    */
+    ```
 ## Licence
 
 This library is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
