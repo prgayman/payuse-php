@@ -30,7 +30,7 @@ Php package a helper to integration with payuse api
         - [Top Up](#razer-gold-top-up)
 - [Orders](#orders)
     - [Get all orders](#get-all-orders)
-    - [Get details order](#get-details-order)
+    - [Get order details](#get-order-details)
 
     
 
@@ -565,7 +565,7 @@ $payUse = new PayUse(
 
     ```
 
-- <span id="get-details-order">Get Details Order</span> 
+- <span id="get-order-details">Get Order Details</span> 
     ```php
     /**
      * Get Order details
