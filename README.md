@@ -71,7 +71,7 @@ $secretKey = "YourSecretKey";
  * 
  * @param string $mode
  * @param string $email
- * @param string #secretKey
+ * @param string $secretKey
  **/
 $payUse = new PayUse(
     PayUse::MODE_SANDBOX,
