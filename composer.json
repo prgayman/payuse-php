@@ -1,0 +1,30 @@
+{
+    "name": "prgayman/payuse-php",
+    "version": "1.0.0",
+    "description": "PayUse Api",
+    "keywords": [
+        "prgayman",
+        "voucher",
+        "top_up",
+        "payuse",
+        "giftcards"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ayman Alaiwah",
+            "email": "aymanalaiwah.dev@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/prgayman/payuse-php",
+    "autoload": {
+        "psr-4": {
+            "Prgayman\\Payuse\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2"
+    }
+}
