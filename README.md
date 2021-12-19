@@ -245,6 +245,79 @@ $payUse = new PayUse(
     */
     ```
 
+### Top Up
+- Free Fire
+    - Account Validation
+
+        ```php
+        /**
+         * Free Fire Top up account validation
+         * 
+         * @param string $identifier
+         * @param int $accountId
+         * 
+         * @return array
+         */
+        $validation = $payUse->freeFireAccountValidation(
+            "Free-Fire-100-Plus-10-Diamonds-Top-Up", 
+            "10000335"
+        );
+
+        /*
+            Response Example
+            [
+                "account_id" => "10000335",
+                "roles" => [[
+                    "server_id" => 0,
+                    "server" => "",
+                    "role_id" => 0,
+                    "client_type" => 0,
+                    "role" => "JROMAN",
+                    "packed_role_id" => 0
+                ]]
+            ]
+        */
+        ```
+
+    - Top Up
+    
+        ```php
+        /**
+         * Free Fire Create Top Up 
+         * 
+         * @param string $identifier
+         * @param int $accountId
+         * @param int $packedRoleId
+         * @param mixed $customOrderReference
+         * 
+         * @return array
+         */
+        $topUp = $payUse->freeFireTopUp(
+            "Free-Fire-100-Plus-10-Diamonds",
+            "10000335", 
+            0,
+            "ORDR-REF3098736");
+        
+        /*
+            Response Example
+            [
+                "orderReference" => "PU-ORDER00000000000049",
+                "customOrderReference" => "PU-ORDER00000000000049",
+                "lineTotal" => [
+                    "amount" => 3,
+                    "formatted" => "$3.00",
+                    "currency" => "USD",
+                ],
+                "unitPrice" => [
+                    "amount" => 3,
+                    "formatted" => "$3.00",
+                    "currency" => "USD",
+                ],
+                "account_id" => "10000355"
+            ]
+        */
+        ```
+
 ## Licence
 
 This library is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
