@@ -247,6 +247,7 @@ $payUse = new PayUse(
 
 ### Top Up
 - Free Fire
+
     - Account Validation
 
         ```php
@@ -280,7 +281,7 @@ $payUse = new PayUse(
         ```
 
     - Top Up
-    
+
         ```php
         /**
          * Free Fire Create Top Up 
@@ -293,7 +294,7 @@ $payUse = new PayUse(
          * @return array
          */
         $topUp = $payUse->freeFireTopUp(
-            "Free-Fire-100-Plus-10-Diamonds",
+            "Free-Fire-100-Plus-10-Diamonds-Top-Up",
             "10000335", 
             0,
             "ORDR-REF3098736");
@@ -302,7 +303,7 @@ $payUse = new PayUse(
             Response Example
             [
                 "orderReference" => "PU-ORDER00000000000049",
-                "customOrderReference" => "PU-ORDER00000000000049",
+                "customOrderReference" => "ORDR-REF3098736",
                 "lineTotal" => [
                     "amount" => 3,
                     "formatted" => "$3.00",
@@ -317,6 +318,281 @@ $payUse = new PayUse(
             ]
         */
         ```
+- Mobile Legends
+
+    - Account Validation
+
+        ```php
+        /**
+         * Mobile Legends Top up account validation
+         * 
+         * @param string $identifier
+         * @param string $accountId
+         * @param int $zoneId
+         * 
+         * @return array
+         */
+        $validation = $payUse->mobileLegendsAccountValidation(
+            "Mobile-Legends-Top-Up-56", 
+            "27295",
+            "7000"
+        );
+
+        /*
+            Response Example
+            [
+                "username" => "Test user",
+                "account_id" => "27295",
+                "customer_id" =>
+                "cEAPMTA0NTExOTQwOTc4Mjk3AfnMAwKpz9UoQxZkaWFtb35kX21pbnRyb3V0
+                ZVVTRF8xBJyqtvgFgA==",
+                "flow_id" => "204511800978287"
+            ]
+        */
+        ```
+
+    - Top Up
+
+        ```php
+            /**
+            * Mobile Legends Create Top Up 
+            * 
+            * @param string $identifier
+            * @param int $accountId
+            * @param string $customerId
+            * @param string $flowId
+            * @param mixed $customOrderReference
+            * 
+            * @return array
+            */
+            $topUp = $payUse->mobileLegendsTopUp(
+                "Mobile-Legends-Top-Up-56",
+                "27295",
+                "cEAPMTA2OTY4OTE3Mjg1NzIwAdg2Ap/VAUMWZGlhbW9uZF9taW50cm91dGVVU0RfMQTRyKaKBoA=",
+                "106968917285720", 
+                "ORDER-REF102947"
+            )
+
+            /*
+                Response Example
+                [
+                    "orderReference" => "PU-ORDER00000000000051",
+                    "customOrderReference" => "ORDR-REF102947",
+                    "lineTotal" => [
+                        "amount" => 2,
+                        "formatted" => "$2.00",
+                        "currency" => "USD",
+                    ],
+                    "unitPrice" => [
+                        "amount" => 2,
+                        "formatted" => "$2.00",
+                        "currency" => "USD",
+                    ],
+                    "account_id" => "27295"
+                ]
+            */
+        ```
+- Razer Gold
+    - Account Validation
+
+        ```php
+            /**
+            * Razer Gold Top up account validation
+            * 
+            * @param string $identifier
+            * @param int $accountId
+            * 
+            * @return array
+            */
+            $validation = $payUse->razerGoldAccountValidation(
+                "Razer-Gold-top-up",
+                "razergoldsandbox+gl015@gmail.com"
+            );
+
+            /*
+                Response Example
+                [
+                    "account_id"=> "razergoldsandbox+gl015@gmail.com",
+                    "validated_token"=> "fc26c910d68543b3bc65e69c0a858f14",
+                    "reference_id"=> "RG-d2be-42dd-8fa9-17e92fa72375-61499e99e14c9",
+                    "wallet_balance"=> 165,
+                    "wallet_currency_Code"=> "USD"
+                ]
+            */
+        ```
+
+    - Top Up
+
+    ```php
+        /**
+        * Razer Gold Create Top Up 
+        * 
+        * @param string $identifier
+        * @param int $accountId
+        * @param string $validatedToken
+        * @param string $referenceId
+        * @param mixed $customOrderReference
+        * 
+        * @return array
+        */
+        $topUp = $payUse->razerGoldTopUp(
+            "Razer-Gold-top-up",
+            "razergoldsandbox+gl015@gmail.com",
+            "fc26c910d68543b3bc65e69c0a858f14",
+            "RG-d2be-42dd-8fa9-17e92fa72375-61499e99e14c9",
+            "ORDER-REF038572"
+        );
+
+        /*
+            Response Example
+            [
+                "orderReference" => "PU-ORDER00000000000050",
+                "customOrderReference" => "ORDR-REF038572",
+                "lineTotal" => [
+                    "amount" => 2,
+                    "formatted" => "$2.00",
+                    "currency" => "USD",
+                ],
+                "unitPrice" => [
+                    "amount" => 2,
+                    "formatted" => "$2.00",
+                    "currency" => "USD",
+                ],
+                "account_id" => "razergoldsandbox+gl005@gmail.com"
+            ]
+        */
+    ```
+### Orders
+- Get Orders
+
+    ```php
+    /**
+     * Get Orders
+     * 
+     * @param int $page
+     * @param int $startDate
+     *  - Unix timestamp
+     * @param int $endDate
+     *  - Unix timestamp
+     * @param string $method 
+     *  - api
+     *  - bulk
+     * @param string $productType
+     *  - codes
+     *  - direct_top_up
+     * 
+     * @return array
+     */
+     $orders = $payUser->getOrders(1);
+
+    /*
+        Response Example
+        [
+            [
+                "order_number" => "PU-ORDER00000000000070",
+                "order_tracking" => "PU-ORDER00000000000070",
+                "sub_total" => [
+                    "amount" => 10.1234,
+                    "formatted" => "$10.12",
+                    "currency" => "USD"
+                ],
+                "total" => [
+                    "amount" => 10.1234,
+                    "formatted" => "$10.12",
+                    "currency" => "USD"
+                ],
+                "method" => "api",
+                "product_type" => "codes",
+                "status" => "finished",
+                "products" => [
+                    [
+                        "identifier" => "Free-Fire-100-Plus-10-Diamonds",
+                        "name" => "Free Fire 100 + 10 Diamonds",
+                        "unit_price" => [
+                            "amount" => 10.1234,
+                            "formatted" => "$10.12",
+                            "currency" => "USD"
+                        ],
+                        "line_total" => [
+                            "amount" => 10.1234,
+                            "formatted" => "$10.12",
+                            "currency" => "USD"
+                        ],
+                        "qty" => 1,
+                        "status" => "finished",
+                        "codes" => [
+                            [
+                                "code" => "162428192160d09341f0765",
+                                "serial" => "P079U-20791-15722-1EEB9-19A03"
+                            ]
+                        ]
+                    ]
+                ],
+                "created_at" => "2021-12-19T11:52:34.000000Z"
+            ]
+        ]
+    */
+
+    ```
+
+- Get Details Order
+    ```php
+    /**
+     * Get Order details
+     * 
+     * @param mixed $orderNumber
+     * @return array
+    */
+    $order = $payUse->getOrderDetails("PU-ORDER00000000000070");
+
+
+    /*
+        Response Example        
+        [
+            "order_number" => "PU-ORDER00000000000070",
+            "order_tracking" => "PU-ORDER00000000000070",
+            "sub_total" => [
+                "amount" => 10.1234,
+                "formatted" => "$10.12",
+                "currency" => "USD"
+            ],
+            "total" => [
+                "amount" => 10.1234,
+                "formatted" => "$10.12",
+                "currency" => "USD"
+            ],
+            "method" => "api",
+            "product_type" => "codes",
+            "status" => "finished",
+            "products" => [
+                [
+                    "identifier" => "Free-Fire-100-Plus-10-Diamonds",
+                    "name" => "Free Fire 100 + 10 Diamonds",
+                    "unit_price" => [
+                        "amount" => 10.1234,
+                        "formatted" => "$10.12",
+                        "currency" => "USD"
+                    ],
+                    "line_total" => [
+                        "amount" => 10.1234,
+                        "formatted" => "$10.12",
+                        "currency" => "USD"
+                    ],
+                    "qty" => 1,
+                    "status" => "finished",
+                    "codes" => [
+                        [
+                            "code" => "162428192160d09341f0765",
+                            "serial" => "P079U-20791-15722-1EEB9-19A03"
+                        ]
+                    ]
+                ]
+            ],
+            "created_at" => "2021-12-19T11:52:34.000000Z"
+        ]
+        
+    */
+    ```
 
 ## Licence
 
