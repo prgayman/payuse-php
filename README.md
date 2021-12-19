@@ -62,7 +62,13 @@ Use function to get access token
  * @return array
  */
 $signIn = $payUse->signIn();
-
+/*
+Response Example
+[
+    "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9eyJhdWQiOiIxIiwianRpIjoiNGM1ODQyMTMyNc",
+    "expires_at": "2021-12-19T11:47:34.000000Z"
+]
+*/
 ```
 
 ## Licence
