@@ -28,6 +28,10 @@ Php package a helper to integration with payuse api
     - [Razer Gold](#top-up-razer-gold)
         - [Account Validation](#razer-gold-validation)
         - [Top Up](#razer-gold-top-up)
+    - [Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved) ](#top-up-net-dragon)
+        - [Account Initialization](#net-dragon-initialization)
+        - [Account Validation](#net-dragon-validation)
+        - [Top Up](#net-dragon-top-up)
 - [Orders](#orders)
     - [Get all orders](#get-all-orders)
     - [Get order details](#get-order-details)
@@ -423,6 +427,7 @@ $payUse = new PayUse(
             */
         ```
 - <span id="top-up-razer-gold">Razer Gold</span> 
+
     - <span id="razer-gold-validation">Account Validation</span> 
 
         ```php
@@ -489,6 +494,97 @@ $payUse = new PayUse(
                         "currency" => "USD",
                     ],
                     "account_id" => "razergoldsandbox+gl005@gmail.com"
+                ]
+            */
+        ```
+
+- <span id="top-up-net-dragon">Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved)</span> 
+
+    - <span id="net-dragon-initialization">Account Initialization</span> 
+        ```php
+            /**
+             *  Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved) Account initialization
+             * 
+             * @param string $identifier
+             * 
+             * @return array
+             */
+            $serverList = $payUse->netDragonAccountInitialization("net-dragon-top-up");
+            /*
+                Response Example
+                [
+                    "server_list"=> [
+                        "America"=> [
+                            [
+                                "serverName"=> "NewYork/Toronto",
+                                "serverId"=> "5",
+                                "isForTest"=> 0
+                            ],
+                        ]
+                    ]
+                ]
+            */
+        ```
+    - <span id="net-dragon-validation">Account Validation</span> 
+
+        ```php
+            /**
+            *  Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved) account validation
+            * 
+            * @param string $identifier
+            * @param string $accountId
+            * @param string $serverId
+            * 
+            * @return array
+            */
+            $validation = $payUse->netDragonAccountAccountValidation(
+                "net-dragon-top-up",
+                "tqgm001",
+                "5"
+            );
+            /*
+                Response Example
+                [
+                    "account_id": "tqgm001"
+                ]
+            */
+        ```
+    - <span id="net-dragon-top-up">Top Up</span> 
+
+        ```php
+            /**
+            * Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved) Create Top Up 
+            * 
+            * @param string $identifier
+            * @param string $accountId
+            * @param string $serverId
+            * @param mixed $customOrderReference
+            * 
+            * @return array
+            */
+            $topUp = $payUse->netDragonTopUp(
+                "net-dragon-top-up",
+                "tqgm001",
+                "5"
+                "ORDER-REF0385776"
+            );
+
+            /*
+                Response Example
+                [
+                    "orderReference" => "PU-ORDER00000000000090",
+                    "customOrderReference" => "ORDR-REF0385776",
+                    "lineTotal" => [
+                        "amount" => 2,
+                        "formatted" => "$2.00",
+                        "currency" => "USD",
+                    ],
+                    "unitPrice" => [
+                        "amount" => 2,
+                        "formatted" => "$2.00",
+                        "currency" => "USD",
+                    ],
+                    "account_id" => "tqgm001"
                 ]
             */
         ```

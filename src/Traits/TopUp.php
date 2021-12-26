@@ -5,6 +5,49 @@ namespace Prgayman\PayUse\Traits;
 trait TopUp
 {
     /**
+     *  Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved) Account initialization
+     * 
+     * @param string $identifier
+     * 
+     * @return array
+     */
+    public function netDragonAccountInitialization(string $identifier): array
+    {
+        return $this->accountInitialization($identifier);
+    }
+
+    /**
+     *  Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved) account validation
+     * 
+     * @param string $identifier
+     * @param string $accountId
+     * @param string $serverId
+     * 
+     * @return array
+     */
+    public function netDragonAccountAccountValidation(string $identifier, string $accountId, string $serverId): array
+    {
+        return $this->accountValidation($identifier, $accountId, [
+            "server_id" => $serverId
+        ]);
+    }
+
+    /**
+     * Net Dragon (Eudemons Online, Conquer Online & Heroes Evolved) Create Top Up 
+     * 
+     * @param string $identifier
+     * @param string $accountId
+     * @param string $serverId
+     * @param mixed $customOrderReference
+     * 
+     * @return array
+     */
+    public function netDragonTopUp(string $identifier, string $accountId, string $serverId, $customOrderReference = null): array
+    {
+        return $this->createTopUp($identifier, $accountId, $customOrderReference, ['server_id' => $serverId]);
+    }
+
+    /**
      * Free Fire Top up account validation
      * 
      * @param string $identifier
@@ -89,6 +132,20 @@ trait TopUp
     public function razerGoldTopUp(string $identifier, string $accountId, string $validatedToken, string $referenceId, $customOrderReference = null): array
     {
         return $this->createTopUp($identifier, $accountId, $customOrderReference, ['validated_token' => $validatedToken, 'reference_id' => $referenceId]);
+    }
+
+    /**
+     * Top up account Initialization
+     * 
+     * @param string $identifier
+     * 
+     * @return array
+     */
+    private function accountInitialization(string $identifier): array
+    {
+        return $this->http->post("/v1/top-up/account-initialization", [
+            'identifier' => $identifier,
+        ])['body'];
     }
 
     /**
