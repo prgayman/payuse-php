@@ -60,7 +60,7 @@ class PayUse
      * 
      * @return void
      */
-    private function setAccessToken(string $accessToken): void
+    public function setAccessToken(string $accessToken): void
     {
         $this->http->setAccessToken($accessToken);
     }
