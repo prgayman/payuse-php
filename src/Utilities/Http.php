@@ -88,9 +88,16 @@ class Http
 
         if ($this->successful($statusCode)) {
             return json_decode($response, true) ?? [];
+        } elseif ($statusCode != 0) {
+            $response = json_decode($response, true);
+            if (isset($response["message"])) {
+                $error = $response["message"];
+            } else {
+                $error = $response;
+            }
         }
 
-        throw new PayUseException($statusCode == 0 ? $error :  $response["message"] ?? $response);
+        throw new PayUseException($error);
     }
 
     /**
