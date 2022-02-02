@@ -69,7 +69,7 @@ class Http
      * 
      * @return array
      */
-    public  function post(string $uri, array $params = [], array $headers = []): array
+    public function post(string $uri, array $params = [], array $headers = []): array
     {
         $ch = curl_init();
 
@@ -90,7 +90,7 @@ class Http
             return json_decode($response, true) ?? [];
         }
 
-        throw new PayUseException($statusCode == 0 ? $error :  $response);
+        throw new PayUseException($statusCode == 0 ? $error :  $response["message"] ?? $response);
     }
 
     /**
