@@ -92,7 +92,7 @@ class Http
             $error = json_decode($response, true)["message"] ?? $response;
         }
 
-        throw new PayUseException($error);
+        throw new PayUseException("mess");
     }
 
     /**
