@@ -92,7 +92,7 @@ class Http
             $error = json_decode($response, true)["message"] ?? $response;
         }
 
-        throw new PayUseException("mess");
+        throw new PayUseException($error);
     }
 
     /**
@@ -118,9 +118,11 @@ class Http
 
         if ($this->successful($statusCode)) {
             return json_decode($response, true) ?? [];
+        } elseif ($statusCode != 0) {
+            $error = json_decode($response, true)["message"] ?? $response;
         }
 
-        throw new PayUseException($statusCode == 0 ? $error :  $response);
+        throw new PayUseException($error);
     }
 
     /**
